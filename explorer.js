@@ -51,9 +51,15 @@
                 this.render();
         },
         
+        events: {"click #txns" : "showtxns"},
+        
         render : function() {  
             var tf = _.template($("#bt").html());        
             this.$el.html(tf(this.model));
+        },
+        
+        showtxns : function(event){
+            console.log("show txxnxnx");
         }
     });
     
