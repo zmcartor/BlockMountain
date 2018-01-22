@@ -46,10 +46,6 @@
         }
     });
     
-    
-    // TODO this should just get the block from async call within router yo.
-    // play some animation.
-    
     var BlockView = Backbone.View.extend( {                
         initialize : function(options) {
                 this.render();

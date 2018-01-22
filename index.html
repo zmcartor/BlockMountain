@@ -6,15 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    <link rel="stylesheet" type="text/css" href="main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
     
     
-    <script type="text/template" id="bt">
-        Number : <%= number %>
-        hash : <%= hash %>
-        nonce : <%= nonce %>
-        size : <%= size %>
-        transactions : <%= transactions.length %> 
+    <script type="text/template" id="bt" class>
+        
+        <div class="fl w-100 w-100-ns pa2 yellow"> <span class="f1">Hash</span></br> <span class="f3"><%= hash %> </span></div>
+        <div class="fl w-100 w-third-ns pa2 b--silver bw1 b--solid br3 grow"> <h4 class="f4 dark-green">Txns</br> <%= transactions.length %> </h4></div>        
+        
+        <div class="fl w-100 w-third-ns pa2 b--silver bw1 b--solid br3"> <h4 class="f4 dark-green">Number</br> <%= number %> </h4></div>
+        <div class="fl w-100 w-third-ns pa2 b--silver bw1 b--solid br3"> <h4 class="f4 dark-green">Size</br> <%= size %> </h4></div>      
     </script>
     
     
@@ -25,15 +27,13 @@
     <script src="./explorer.js"></script>
     
 </head>
-<body>
-    
-    <div class="container">
+<body class="bg-green black-70 pa4 avenir">
 
-        <h1>BLOCK EXPLORER</h1>
+        <h1 class="f1">BLOCK EXPLORER</h1>
         
-        <div id="apphook"></div>
+        <div class="mw9 center ph3-ns">
+                <div id="apphook" class="cf ph2-ns"></div>
+        </div>
         
-    </div>
-
 </body>
 </html>
