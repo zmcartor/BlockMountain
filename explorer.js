@@ -16,12 +16,13 @@
         appHook : $("#apphook"),
         
         cleanup : function() {
-            this.appHook.empty()
+            $('#apphook').empty()
         },
     
         blockRoute : function(number) {
             this.cleanup();
             var num = number || "latest";
+            console.log(num);
             this.web3.eth.getBlock(num, false, function(error, blockObj) {
                 if (error != null){
                     alert("error in latest block call boo");
@@ -60,6 +61,43 @@
         
         showtxns : function(event){
             console.log("show txxnxnx");
+            event.stopPropagation;
+        }
+    });
+    
+    var Searchbox = Backbone.View.extend( {
+       
+        router : undefined,
+        web3 : undefined,
+        
+        initialize : function(opts){
+            this.router = opts.router;
+            this.el = opts.el;
+            this.web3 = opts.web3;
+        },
+        
+        events : { "submit" : "submit" },
+        
+        submit : function(event){
+            console.log("WHOA SUBMIT!!");
+            event.preventDefault();
+            event.stopPropagation();
+            
+            var input = $("input", this.el).val();
+            
+            if (this.web3.isAddress(input)){
+                console.log("ADDRSSS");
+                this.router.navigate("#address/"+input , {"trigger" : true});
+                return;
+            }
+            
+            var parsed = Number.parseInt(input, 10);
+            if (! Number.isNaN(parsed)){
+                console.log("BLOCK!!")
+                this.router.navigate("#block/"+parsed , {"trigger" : true});
+                return;
+            }
+            // check for tx hash howto?
         }
     });
     
@@ -74,6 +112,8 @@
         
         var router = new Router({ "web3" : web3 });
         Backbone.history.start({"pushState" : true});
+        
+        new Searchbox({"el" : $("form#search"), "router" : router , "web3" : web3});
     });
 
 }());
