@@ -22,7 +22,6 @@
         blockRoute : function(number) {
             this.cleanup();
             var num = number || "latest";
-            console.log(num);
             this.web3.eth.getBlock(num, false, function(error, blockObj) {
                 if (error != null){
                     alert("error in latest block call boo");
@@ -87,17 +86,26 @@
             
             if (this.web3.isAddress(input)){
                 console.log("ADDRSSS");
-                this.router.navigate("#address/"+input , {"trigger" : true});
+                this.router.navigate("#address/"+input , true);
                 return;
             }
             
             var parsed = Number.parseInt(input, 10);
             if (! Number.isNaN(parsed)){
                 console.log("BLOCK!!")
-                this.router.navigate("#block/"+parsed , {"trigger" : true});
+                this.router.navigate("#block/"+parsed , true);
                 return;
             }
-            // check for tx hash howto?
+            
+            // totally BS way to test if transaction hash. IF this fails, web3 wont find it which is fine.
+            
+            var startsWith = input.startsWith("0x");
+            var validLen = input.slice(2).length == 64;
+            
+            if (starsWith && validLen){
+                this.router.navigate("#transaction/"+input, true);
+                return;
+            }
         }
     });
     
