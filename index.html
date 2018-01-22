@@ -12,8 +12,8 @@
     
     <script type="text/template" id="bt" class>
         
-        <div class="fl w-100 pa2 yellow"> <span class="f4 f2-m f1-l">Hash</span></br> <span class="f10 f4-m f3-l"><%= hash %> </span></div>
-        <div class="fl w-100 w-third-ns pa2 b--silver bw1 b--solid br3 grow"> <h4 class="f5 f4-m f3-l dark-green">Txns</br> <%= transactions.length %> </h4></div>        
+        <div class="fl w-100 pa2 yellow"> <span class="f4 f2-m f1-l">Hash</span></br> <p class="mw9 truncate f7 f5-m f4-l"><%= hash %> </p></div>
+        <div class="fl w-100 w-third-ns pa2 b--silver bw1 b--solid br3 grow"> <h4 id="txns"class="f5 f4-m f3-l dark-green">Txns</br> <%= transactions.length %> </h4></div>        
         
         <div class="fl w-100 w-third-ns pa2 b--silver bw1 b--solid br3"> <h4 class="f5 f4-m f3-l dark-green">Number</br> <%= number %> </h4></div>
         <div class="fl w-100 w-third-ns pa2 b--silver bw1 b--solid br3"> <h4 class="f5 f4-m f3-l dark-green">Size</br> <%= size %> </h4></div>      
@@ -30,7 +30,7 @@
 
         <h1 class="f1">BLOCK EXPLORER</h1>
         
-        <div class="mw9 center ph3-ns">
+        <div class="center ph3-ns">
                 <div id="apphook" class="cf ph2-ns"></div>
         </div>
         
