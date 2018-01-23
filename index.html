@@ -81,7 +81,8 @@
     <script type="text/template" id="txn-template">
         
         <div class="fl w-100 b---blue bw1 b--solid br3 bg-near-black pa3">
-        <div class="fl w-100 yellow"> <span class="f5 f4-m f3-l b">Transaction</span></br> <p class="mw9 truncate f6 f4-m f3-l"><%= hash %> </p></div>
+        <div class="fl w-100 yellow"> <span class="f5 f4-m f3-l b">Transaction</span></br> 
+            <p class="mw9 truncate f6 f4-m f3-l"><%= hash %> </p></div>
         
             <small id="name-desc" class="f6 db mb2 yellow">Block Index: <%= transactionIndex %></small>
             
@@ -135,7 +136,7 @@
               <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Input</h1>
               <div class="pa3 bt">
                 <p class="f3-l f4-m f5 measure mv0 light-gray">
-                  <%= input %>
+                  <%= decoded %>
                 </p>
               </div>
             </article>

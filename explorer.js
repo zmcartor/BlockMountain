@@ -231,9 +231,16 @@
         },
         
         render : function() {
-            
             var t = _.template($("#txn-template").html());
             this.model["eth"] = this.convertToDisplayETH(this.model.value, this.web3);
+            
+            if (this.model.input.length > 2) {
+                console.log(this.model.input);
+                this.model["decoded"] = this.web3.toAscii(this.model.input);
+            } else {
+                this.model["decoded"] = "empty";
+            }
+            
             this.$el.html(t(this.model));
         },
         
