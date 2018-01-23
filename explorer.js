@@ -151,8 +151,6 @@
             
             var row = _.template($("#trans-row").html());
             _.each(this.transactions , function(ele, index, list) {
-
-                // stick data element on each row.
                 ele["indexVal"] = index;
                 ele["eth"] = this.web3.fromWei(ele.value , "ether")
                 this.$el.find("tbody").append(row(ele));
@@ -166,6 +164,14 @@
             this.router.navigate("transaction/"+trans.hash , true);
         }
         
+    });
+    
+    // display transactions, no interactivity here.
+    // link out to addreses , block number
+    
+    var TransactionView = Backbone.View.extend({
+       
+           
     });
     
     $().ready(function() {        
