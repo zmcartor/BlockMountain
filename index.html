@@ -52,10 +52,11 @@
     <div class="pa4">
       <div class="overflow-auto">
           
-        <table class="f6 w-100 mw8 center" cellspacing="0">
+        <table class="f6 w-100 mw8 center bg-moon-gray" cellspacing="0">
           <thead>
-            <tr class="stripe-dark">
+            <tr>
               <th class="fw6 tl pa3 bg-white">Sender</th>
+              <th class="fw6 tl pa3 bg-white"></th>
               <th class="fw6 tl pa3 bg-white">Recipient</th>
               <th class="fw6 tl pa3 bg-white">Amount</th>
             </tr>
@@ -71,8 +72,9 @@
     <script type="text/template" id="trans-row">
         <tr class="stripe-dark transaction-row pointer" data-index="<%= indexVal %>">
           <td class="pa3"> <%= from %></td>
+          <td class="pa3"> → </td>
           <td class="pa3"> <%= to %></td>
-          <td class="pa3"> <%= value %></td>
+          <td class="pa3"> <%= eth %> ETH</td>
         </tr>
     </script>
     

@@ -54,7 +54,7 @@
                 }
                 
                 // TODO sometimes blockObj is null for some reason?!! CATCH THIS
-                var txList = new TransactionsListView({"transactions" : blockObj.transactions , "router" : router})
+                var txList = new TransactionsListView({"transactions" : blockObj.transactions , "web3" : router.web3, "router" : router})
                 $("#apphook").append(txList.el);
             });
             
@@ -132,10 +132,12 @@
         
         router : undefined,
         transactions : undefined,
+        web3 : undefined,
                 
         initialize : function(opts) {
             this.router = opts.router;
             this.transactions = opts.transactions;
+            this.web3 = opts.web3;
             
             this.render();
         },
@@ -152,6 +154,7 @@
 
                 // stick data element on each row.
                 ele["indexVal"] = index;
+                ele["eth"] = this.web3.fromWei(ele.value , "ether")
                 this.$el.find("tbody").append(row(ele));
             }, this);
         },
