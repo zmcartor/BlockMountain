@@ -85,16 +85,16 @@
         
             <small id="name-desc" class="f6 db mb2 yellow">Index: <%= transactionIndex %></small>
             
-            <a class="fl w-100 w-third-ns pa3 bg-near-black pointer dim red" id="sender" href="/#address/<%=from %>">
+            <article class="fl w-100 w-third-ns pa3 bg-near-black pointer dim red" id="sender">
               <h1 class="f3-l f4-m f5 white mv0 pv2 ph3">Sender> </h1>
               <div class="pa3 bt">
                 <p class="f7 f6-m f5-l measure mv0 red">
                   <%= from %>
                 </p>
               </div>
-            </a>
+            </article>
         
-            <a class="fl w-100 w-third-ns pa3 bg-near-black blue pointer dim" id="receiver" href="/#address/<%=to %>">
+            <article class="fl w-100 w-third-ns pa3 bg-near-black blue pointer dim" id="receiver">
               <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Recipient</h1>
               <div class="pa3 bt">
                 <p class="f7 f6-m f5-l measure mv0 blue">
@@ -113,14 +113,14 @@
               </div>
             </article>
     
-            <a class="fl f2-m w-100 w-third-ns pa3 bg-near-black green pointer dim" id='txnBlockNum' href="/#blocknum/"<%=blockNumber%> >
+            <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black green pointer dim" id="bnumber">
               <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Blocknumber</h1>
               <div class="pa3 bt">
                 <p class="f3-l f4-m f5 measure mv0 green">
                   <%= blockNumber %>
                 </p>
               </div>
-            </a>
+            </article>
             
             <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black pink">
               <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Gas Price / Gas</h1>
