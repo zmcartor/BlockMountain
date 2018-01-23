@@ -13,12 +13,12 @@
     <script type="text/template" id="bt" class>
         
         <div class="fl w-100 b---blue bw1 b--solid br3 bg-near-black pa3">
-        <div class="fl w-100 yellow"> <span class="f5 f4-m f3-l b">Hash</span></br> <p class="mw9 truncate f6 f4-m f3-l"><%= hash %> </p></div>
+        <div class="fl w-100 yellow"> <span class="f5 f4-m f3-l b">Block</span></br> <p class="mw9 truncate f6 f4-m f3-l"><%= hash %> </p></div>
         
             <small id="name-desc" class="f6 db mb2 yellow"><%= timestamp %></small>
             
             <article class="fl w-100 w-third-ns pa3 bg-near-black pointer dim red" id="txns">
-              <h1 class="f3-l f4-m f5 white mv0 pv2 ph3">Transactions> </h1>
+              <h1 class="f3-l f4-m f5 white mv0 pv2 ph3">Transactions</h1>
               <div class="pa3 bt">
                 <p class="f3-l f4-m f5 measure mv0 red">
                   <%= transactions.length %>
@@ -27,7 +27,7 @@
             </article>
         
             <article class="fl w-100 w-third-ns pa3 bg-near-black green">
-              <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Number></h1>
+              <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Number</h1>
               <div class="pa3 bt">
                 <p class="f3-l f4-m f5 measure mv0 green">
                   <%= number %>
@@ -37,7 +37,7 @@
         
         
             <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black blue">
-              <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Size></h1>
+              <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Size</h1>
               <div class="pa3 bt">
                 <p class="f3-l f4-m f5 measure mv0 blue">
                   <%= size %>
@@ -76,6 +76,71 @@
           <td class="pa3"> <%= to %></td>
           <td class="pa3"> <%= eth %> ETH</td>
         </tr>
+    </script>
+    
+    <script type="text/template" id="txn-template">
+        
+        <div class="fl w-100 b---blue bw1 b--solid br3 bg-near-black pa3">
+        <div class="fl w-100 yellow"> <span class="f5 f4-m f3-l b">Transaction</span></br> <p class="mw9 truncate f6 f4-m f3-l"><%= hash %> </p></div>
+        
+            <small id="name-desc" class="f6 db mb2 yellow">Index: <%= transactionIndex %></small>
+            
+            <article class="fl w-100 w-third-ns pa3 bg-near-black pointer dim red" id="txns">
+              <h1 class="f3-l f4-m f5 white mv0 pv2 ph3">Sender> </h1>
+              <div class="pa3 bt">
+                <p class="f7 f6-m f5-l measure mv0 red">
+                  <%= from %>
+                </p>
+              </div>
+            </article>
+        
+            <article class="fl w-100 w-third-ns pa3 bg-near-black orange pointer dim">
+              <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Recipient</h1>
+              <div class="pa3 bt">
+                <p class="f7 f6-m f5-l measure mv0 green">
+                  <%= to %>
+                </p>
+              </div>
+            </article>
+        
+        
+            <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black dark-yellow">
+              <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Amount</h1>
+              <div class="pa3 bt">
+                <p class="f3-l f4-m f5 measure mv0 blue">
+                  <%= value %>
+                </p>
+              </div>
+            </article>
+    
+            <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black blue pointer dim">
+              <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Blocknumber</h1>
+              <div class="pa3 bt">
+                <p class="f3-l f4-m f5 measure mv0 blue">
+                  <%= blockNumber %>
+                </p>
+              </div>
+            </article>
+            
+            <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black blue">
+              <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Gas Price / Gas</h1>
+              <div class="pa3 bt">
+                <p class="f3-l f4-m f5 measure mv0 blue">
+                  <%= gasPrice %> / <%= gas%>
+                </p>
+              </div>
+            </article>
+            
+            <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black blue">
+              <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Input</h1>
+              <div class="pa3 bt">
+                <p class="f3-l f4-m f5 measure mv0 blue">
+                  <%= input %>
+                </p>
+              </div>
+            </article>
+        </div>
+
     </script>
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

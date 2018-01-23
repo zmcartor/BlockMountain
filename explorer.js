@@ -39,7 +39,18 @@
     
         transactionRoute : function(trans) {
             this.cleanup();
-            console.log(trans);
+            
+            var router = this;
+            this.web3.eth.getTransaction(trans, function(error, blockObj){
+                if (error != null){
+                    alert("error in latest block call boo");
+                    console.log(error);
+                    return;
+                }
+                
+                var tx = new TransactionView({"model" : blockObj, "web3" : router.web3, "router" : router})
+                $("#apphook").append(tx.el); 
+            });
         },
         
         transactionList : function(blocknum) {
@@ -50,6 +61,11 @@
                 if (error != null){
                     alert("error in latest block call boo");
                     console.log(error);
+                    return;
+                }
+                
+                if (blockObj == null){
+                    alert("This block is fresh, we dont have all the txns set.");
                     return;
                 }
                 
@@ -79,8 +95,7 @@
         render : function() {  
             var tf = _.template($("#bt").html());
             
-            this.model.timestamp = this.convertTimestamp(this.model.timestamp);
-                    
+            this.model.timestamp = this.convertTimestamp(this.model.timestamp);   
             this.$el.html(tf(this.model));
         },
         
@@ -199,12 +214,33 @@
     
     var TransactionView = Backbone.View.extend({
        
+        web3 : undefined,
+        router: undefined,
+        
+        // click block num, click addresses
+        events : { },
+        
         initialize : function(opts){
+            this.web3 = opts.web3;
+            this.router = opts.router;
+            
+            this.render();
+        },
+        
+        render : function() {
+            
+            var t = _.template($("#txn-template").html());
+            this.$el.html(t(this.model));
+        },
+        
+        blockClick : function(event) {
             
         },
         
-       
-           
+        addrClick : function(event) {
+            
+        }
+        
     });
     
     $().ready(function() {        
