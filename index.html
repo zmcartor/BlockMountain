@@ -12,38 +12,68 @@
     
     <script type="text/template" id="bt" class>
         
-        <div class="fl w-100 b--dark-green bw1 b--solid br3 bg-light-green">
-            <div class="fl w-100 pa2 yellow"> <span class="f4 f2-m f1-l">Hash</span></br> <p class="mw9 truncate f7 f5-m f4-l"><%= hash %> </p></div>
+        <div class="fl w-100 b--dark-green bw1 b--solid br3 bg-light-green pa3">
+        <div class="fl w-100 pa3 yellow"> <span class="f5 f4-m f3-l b">Hash</span></br> <p class="mw9 truncate f6 f4-m f3-l"><%= hash %> </p></div>
         
-            <article class="fl w-100 w-third-ns pa2 bg-mid-gray pointer grow">
-              <h1 class="f4 bg-near-black white mv0 pv2 ph3">Transactions> </h1>
+            <small id="name-desc" class="f6 black-60 db mb2">Date: <%= timestamp %></small>
+            
+            <article class="fl w-100 w-third-ns pa3 bg-mid-gray pointer dim" id="txns">
+              <h1 class="f3-l f4-m f5 bg-near-black white mv0 pv2 ph3">Transactions> </h1>
               <div class="pa3 bt">
-                <p class="f7 f5-m f4-l measure mv0">
+                <p class="f3-l f4-m f5 measure mv0">
                   <%= transactions.length %>
                 </p>
               </div>
             </article>
         
-            <article class="fl w-100 w-third-ns pa2 bg-moon-gray">
-              <h1 class="f4 bg-near-black white mv0 pv2 ph3">Number></h1>
+            <article class="fl w-100 w-third-ns pa3 bg-moon-gray">
+              <h1 class="f3-l f4-m f5 bg-near-black white mv0 pv2 ph3">Number></h1>
               <div class="pa3 bt">
-                <p class="f7 f5-m f4-l measure mv0">
+                <p class="f3-l f4-m f5 measure mv0">
                   <%= number %>
                 </p>
               </div>
             </article>
         
         
-            <article class="fl w-100 w-third-ns pa2 bg-light-gray ">
-              <h1 class="f4 bg-near-black white mv0 pv2 ph3">Size></h1>
+            <article class="fl f2-m w-100 w-third-ns pa3 bg-light-gray">
+              <h1 class="f3-l f4-m f5 bg-near-black white mv0 pv2 ph3">Size></h1>
               <div class="pa3 bt">
-                <p class="f7 f5-m f4-l measure mv0">
+                <p class="f3-l f4-m f5 measure mv0">
                   <%= size %>
                 </p>
               </div>
             </article>
         </div>
            
+    </script>
+    
+    <script type="text/template" id="trans-table">
+    <div class="pa4">
+      <div class="overflow-auto">
+          
+        <table class="f6 w-100 mw8 center" cellspacing="0">
+          <thead>
+            <tr class="stripe-dark">
+              <th class="fw6 tl pa3 bg-white">Sender</th>
+              <th class="fw6 tl pa3 bg-white">Recipient</th>
+              <th class="fw6 tl pa3 bg-white">Amount</th>
+            </tr>
+          </thead>
+          <tbody class="lh-copy">
+          </tbody>
+        </table>
+        </div>
+     </div>
+ 
+    </script>
+    
+    <script type="text/template" id="trans-row">
+        <tr class="stripe-dark transaction-row pointer" data-index="<%= indexVal %>">
+          <td class="pa3"> <%= from %></td>
+          <td class="pa3"> <%= to %></td>
+          <td class="pa3"> <%= value %></td>
+        </tr>
     </script>
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

@@ -3,6 +3,7 @@
         routes : {
             "" : "blockRoute",
             "block/:blocknumber" : "blockRoute",
+            "txnslist/:blocknumber" : "transactionList",
             "transaction/:transhash" : "transactionRoute",
             "address/:addr" : "addressRoute"
         },
@@ -22,6 +23,7 @@
         blockRoute : function(number) {
             this.cleanup();
             var num = number || "latest";
+            var router = this;
             this.web3.eth.getBlock(num, false, function(error, blockObj) {
                 if (error != null){
                     alert("error in latest block call boo");
@@ -29,7 +31,7 @@
                     return;
                 }
                 
-                var latestBlock = new BlockView({model: blockObj});
+                var latestBlock = new BlockView({model: blockObj , "router" : router});
                 $("#apphook").append(latestBlock.el);
             });
 
@@ -37,18 +39,39 @@
     
         transactionRoute : function(trans) {
             this.cleanup();
-
+            console.log(trans);
+        },
+        
+        transactionList : function(blocknum) {
+            this.cleanup();
+                
+            var router = this;
+            this.web3.eth.getBlock(blocknum, true, function(error, blockObj) {
+                if (error != null){
+                    alert("error in latest block call boo");
+                    console.log(error);
+                    return;
+                }
+                
+                // TODO sometimes blockObj is null for some reason?!! CATCH THIS
+                var txList = new TransactionsListView({"transactions" : blockObj.transactions , "router" : router})
+                $("#apphook").append(txList.el);
+            });
+            
         },
     
         addressRoute : function(addr) {
             this.cleanup();
-            
         }
+        
     });
     
-    var BlockView = Backbone.View.extend( {                
-        initialize : function(options) {
+    var BlockView = Backbone.View.extend( {
+        
+        router : undefined,                
+        initialize : function(opts) {
                 this.render();
+                this.router = opts.router;
         },
         
         events: {"click #txns" : "showtxns"},
@@ -59,8 +82,8 @@
         },
         
         showtxns : function(event){
-            console.log("show txxnxnx");
             event.stopPropagation;
+            this.router.navigate("txnslist/"+this.model.number , true);
         }
     });
     
@@ -78,27 +101,23 @@
         events : { "submit" : "submit" },
         
         submit : function(event){
-            console.log("WHOA SUBMIT!!");
             event.preventDefault();
             event.stopPropagation();
             
             var input = $("input", this.el).val();
             
             if (this.web3.isAddress(input)){
-                console.log("ADDRSSS");
                 this.router.navigate("#address/"+input , true);
                 return;
             }
             
             var parsed = Number.parseInt(input, 10);
             if (! Number.isNaN(parsed)){
-                console.log("BLOCK!!")
                 this.router.navigate("#block/"+parsed , true);
                 return;
             }
             
             // totally BS way to test if transaction hash. IF this fails, web3 wont find it which is fine.
-            
             var startsWith = input.startsWith("0x");
             var validLen = input.slice(2).length == 64;
             
@@ -109,6 +128,42 @@
         }
     });
     
+    var TransactionsListView = Backbone.View.extend({
+        
+        router : undefined,
+        transactions : undefined,
+                
+        initialize : function(opts) {
+            this.router = opts.router;
+            this.transactions = opts.transactions;
+            
+            this.render();
+        },
+        
+        events : {"click .transaction-row" : "transactionClick"},
+        
+        render : function() {
+            
+            var table = _.template($("#trans-table").html());
+            this.$el.html(table());
+            
+            var row = _.template($("#trans-row").html());
+            _.each(this.transactions , function(ele, index, list) {
+
+                // stick data element on each row.
+                ele["indexVal"] = index;
+                this.$el.find("tbody").append(row(ele));
+            }, this);
+        },
+        
+        transactionClick : function(event){
+            var index = $(event.target).parent("tr").data("index");
+            event.stopPropagation();
+            var trans = this.transactions[index];
+            this.router.navigate("transaction/"+trans.hash , true);
+        }
+        
+    });
     
     $().ready(function() {        
         var web3 = new Web3( new Web3.providers.HttpProvider("https://mainnet.infura.io/3TntECqcqkTqyRsDoSNu"));
