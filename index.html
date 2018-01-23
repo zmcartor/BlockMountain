@@ -12,11 +12,36 @@
     
     <script type="text/template" id="bt" class>
         
-        <div class="fl w-100 pa2 yellow"> <span class="f4 f2-m f1-l">Hash</span></br> <p class="mw9 truncate f7 f5-m f4-l"><%= hash %> </p></div>
-        <div class="fl w-100 w-third-ns pa2 b--silver bw1 b--solid br3 grow"> <h4 id="txns"class="f5 f4-m f3-l dark-green">Txns</br> <%= transactions.length %> </h4></div>        
+        <div class="fl w-100 pa2 yellow "> <span class="f4 f2-m f1-l">Hash</span></br> <p class="mw9 truncate f7 f5-m f4-l"><%= hash %> </p></div>
         
-        <div class="fl w-100 w-third-ns pa2 b--silver bw1 b--solid br3"> <h4 class="f5 f4-m f3-l dark-green">Number</br> <%= number %> </h4></div>
-        <div class="fl w-100 w-third-ns pa2 b--silver bw1 b--solid br3"> <h4 class="f5 f4-m f3-l dark-green">Size</br> <%= size %> </h4></div>      
+        <article class="fl w-100 w-third-ns pa2 bg-mid-gray pointer grow">
+          <h1 class="f4 bg-near-black white mv0 pv2 ph3">Transactions> </h1>
+          <div class="pa3 bt">
+            <p class="f7 f5-m f4-l measure mv0">
+              <%= transactions.length %>
+            </p>
+          </div>
+        </article>
+        
+        <article class="fl w-100 w-third-ns pa2 bg-moon-gray">
+          <h1 class="f4 bg-near-black white mv0 pv2 ph3">Number></h1>
+          <div class="pa3 bt">
+            <p class="f7 f5-m f4-l measure mv0">
+              <%= number %>
+            </p>
+          </div>
+        </article>
+        
+        
+        <article class="fl w-100 w-third-ns pa2 bg-light-gray ">
+          <h1 class="f4 bg-near-black white mv0 pv2 ph3">Size></h1>
+          <div class="pa3 bt">
+            <p class="f7 f5-m f4-l measure mv0">
+              <%= size %>
+            </p>
+          </div>
+        </article>
+           
     </script>
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -26,11 +51,8 @@
     <script src="./explorer.js"></script>
     
 </head>
-<body class="bg-green black-70 pa4 avenir">
-
-        <h1 class="f1">BLOCK EXPLORER</h1>
-        
-        <form id ="search"class="pa4 black-80">
+<body class="bg-green black-70 avenir">        
+        <form id ="search"class="pa3 black-80">
           <div class="measure">
             <label for="name" class="f6 b db mb2">Search</label>
             <input class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="name-desc">
@@ -38,7 +60,7 @@
           </div>
         </form>
         
-        <div class="center ph3-ns">
+        <div class="mw9 center ph3-ns pa3">
                 <div id="apphook" class="cf ph2-ns"></div>
         </div>
         
