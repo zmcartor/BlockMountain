@@ -218,7 +218,9 @@
         router: undefined,
         
         // click block num, click addresses
-        events : { },
+        events : {"click #sender" : "addrClick",
+                  "click #receiver" : "addrClick",
+                  "txnBlockNumber" : "blockNumClick" },
         
         initialize : function(opts){
             this.web3 = opts.web3;
@@ -233,12 +235,12 @@
             this.$el.html(t(this.model));
         },
         
-        blockClick : function(event) {
-            
+        blockNumClick : function(event) {
+            this.router.navigate("blocknum/"+this.model.blockNumber , true);
         },
         
         addrClick : function(event) {
-            
+            this.router.navigate("blockNum/"+this.model.block)
         }
         
     });

@@ -85,56 +85,56 @@
         
             <small id="name-desc" class="f6 db mb2 yellow">Index: <%= transactionIndex %></small>
             
-            <article class="fl w-100 w-third-ns pa3 bg-near-black pointer dim red" id="txns">
+            <a class="fl w-100 w-third-ns pa3 bg-near-black pointer dim red" id="sender" href="/#address/<%=from %>">
               <h1 class="f3-l f4-m f5 white mv0 pv2 ph3">Sender> </h1>
               <div class="pa3 bt">
                 <p class="f7 f6-m f5-l measure mv0 red">
                   <%= from %>
                 </p>
               </div>
-            </article>
+            </a>
         
-            <article class="fl w-100 w-third-ns pa3 bg-near-black orange pointer dim">
+            <a class="fl w-100 w-third-ns pa3 bg-near-black blue pointer dim" id="receiver" href="/#address/<%=to %>">
               <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Recipient</h1>
               <div class="pa3 bt">
-                <p class="f7 f6-m f5-l measure mv0 green">
+                <p class="f7 f6-m f5-l measure mv0 blue">
                   <%= to %>
                 </p>
               </div>
             </article>
         
         
-            <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black dark-yellow">
+            <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black light-green">
               <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Amount</h1>
               <div class="pa3 bt">
-                <p class="f3-l f4-m f5 measure mv0 blue">
+                <p class="f3-l f4-m f5 measure mv0 light-green">
                   <%= value %>
                 </p>
               </div>
             </article>
     
-            <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black blue pointer dim">
+            <a class="fl f2-m w-100 w-third-ns pa3 bg-near-black green pointer dim" id='txnBlockNum' href="/#blocknum/"<%=blockNumber%> >
               <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Blocknumber</h1>
               <div class="pa3 bt">
-                <p class="f3-l f4-m f5 measure mv0 blue">
+                <p class="f3-l f4-m f5 measure mv0 green">
                   <%= blockNumber %>
                 </p>
               </div>
-            </article>
+            </a>
             
-            <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black blue">
+            <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black pink">
               <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Gas Price / Gas</h1>
               <div class="pa3 bt">
-                <p class="f3-l f4-m f5 measure mv0 blue">
+                <p class="f3-l f4-m f5 measure mv0 pink">
                   <%= gasPrice %> / <%= gas%>
                 </p>
               </div>
             </article>
             
-            <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black blue">
+            <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black light-gray">
               <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Input</h1>
               <div class="pa3 bt">
-                <p class="f3-l f4-m f5 measure mv0 blue">
+                <p class="f3-l f4-m f5 measure mv0 light-gray">
                   <%= input %>
                 </p>
               </div>
