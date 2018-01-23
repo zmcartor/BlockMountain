@@ -193,9 +193,10 @@
             this.$el.html(table());
             
             var row = _.template($("#trans-row").html());
+            
             _.each(this.transactions , function(ele, index, list) {
                 ele["indexVal"] = index;
-                ele["eth"] = this.web3.fromWei(ele.value , "ether")
+                ele["eth"] = this.convertToDisplayETH(ele.value, this.web3);
                 this.$el.find("tbody").append(row(ele));
             }, this);
         },
@@ -232,6 +233,7 @@
         render : function() {
             
             var t = _.template($("#txn-template").html());
+            this.model["eth"] = this.convertToDisplayETH(this.model.value, this.web3);
             this.$el.html(t(this.model));
         },
         
@@ -248,6 +250,10 @@
         }
         
     });
+    
+    Backbone.View.prototype.convertToDisplayETH = function(val, web3) {
+      return Number(web3.fromWei(val , "ether")).toFixed(5);  
+    };
     
     $().ready(function() {        
         var web3 = new Web3( new Web3.providers.HttpProvider("https://mainnet.infura.io/3TntECqcqkTqyRsDoSNu"));
