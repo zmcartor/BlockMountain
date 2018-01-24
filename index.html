@@ -13,11 +13,11 @@
     <script type="text/template" id="bt" class>
         
         <div class="fl w-100 b---blue bw1 b--solid br3 bg-near-black pa3">
-        <div class="fl w-100 yellow"> <span class="f5 f4-m f3-l b">Block</span></br> <p class="mw9 truncate f6 f4-m f3-l"><%= hash %> </p></div>
+        <div class="fl w-100 tyellow"> <span class="f5 f4-m f3-l b">Block</span></br> <p class="mw9 truncate f6 f4-m f3-l"><%= hash %> </p></div>
         
-            <small id="name-desc" class="f6 db mb2 yellow"><%= timestamp %></small>
+            <small id="name-desc" class="f6 db mb2 tyellow"><%= timestamp %></small>
             
-            <article class="fl w-100 w-third-ns pa3 bg-near-black pointer dim red" id="txns">
+            <article class="fl w-100 w-third-ns pa3 bg-near-black pointer dim tred" id="txns">
               <h1 class="f3-l f4-m f5 white mv0 pv2 ph3">Transactions</h1>
               <div class="pa3 bt">
                 <p class="f3-l f4-m f5 measure mv0 red">
@@ -26,20 +26,20 @@
               </div>
             </article>
         
-            <article class="fl w-100 w-third-ns pa3 bg-near-black green">
+            <article class="fl w-100 w-third-ns pa3 bg-near-black torange">
               <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Number</h1>
               <div class="pa3 bt">
-                <p class="f3-l f4-m f5 measure mv0 green">
+                <p class="f3-l f4-m f5 measure mv0 torange">
                   <%= number %>
                 </p>
               </div>
             </article>
         
         
-            <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black blue">
+            <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black tblue">
               <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Size</h1>
               <div class="pa3 bt">
-                <p class="f3-l f4-m f5 measure mv0 blue">
+                <p class="f3-l f4-m f5 measure mv0 tblue">
                   <%= size %>
                 </p>
               </div>
@@ -81,52 +81,52 @@
     <script type="text/template" id="txn-template">
         
         <div class="fl w-100 b---blue bw1 b--solid br3 bg-near-black pa3">
-        <div class="fl w-100 yellow"> <span class="f5 f4-m f3-l b">Transaction</span></br> 
+        <div class="fl w-100 tyellow"> <span class="f5 f4-m f3-l b">Transaction</span></br> 
             <p class="mw9 truncate f6 f4-m f3-l"><%= hash %> </p></div>
         
-            <small id="name-desc" class="f6 db mb2 yellow">Block Index: <%= transactionIndex %></small>
+            <small id="name-desc" class="f6 db mb2 tyellow">Block Index: <%= transactionIndex %></small>
             
-            <article class="fl w-100 w-third-ns pa3 bg-near-black pointer dim red" id="sender">
-              <h1 class="f3-l f4-m f5 white mv0 pv2 ph3">Sender> </h1>
+            <article class="fl w-100 w-third-ns pa3 bg-near-black pointer dim tred" id="sender">
+              <h1 class="f3-l f4-m f5 white mv0 pv2 ph3">Sender</h1>
               <div class="pa3 bt">
-                <p class="f7 f6-m f5-l measure mv0 red">
+                <p class="f7 f6-m f5-l measure mv0 tred">
                   <%= from %>
                 </p>
               </div>
             </article>
         
-            <article class="fl w-100 w-third-ns pa3 bg-near-black blue pointer dim" id="receiver">
+            <article class="fl w-100 w-third-ns pa3 bg-near-black tblue pointer dim" id="receiver">
               <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Recipient</h1>
               <div class="pa3 bt">
-                <p class="f7 f6-m f5-l measure mv0 blue">
+                <p class="f7 f6-m f5-l measure mv0 tblue">
                   <%= to %>
                 </p>
               </div>
             </article>
         
         
-            <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black light-green">
+            <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black tgreen">
               <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Amount</h1>
               <div class="pa3 bt">
-                <p class="f3-l f4-m f5 measure mv0 light-green">
+                <p class="f3-l f4-m f5 measure mv0 tgreen">
                   <%= eth %> ETH
                 </p>
               </div>
             </article>
     
-            <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black green pointer dim" id="bnumber">
-              <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Blocknumber</h1>
+            <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black torange pointer dim" id="bnumber">
+              <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Block Number</h1>
               <div class="pa3 bt">
-                <p class="f3-l f4-m f5 measure mv0 green">
+                <p class="f3-l f4-m f5 measure mv0 torange">
                   <%= blockNumber %>
                 </p>
               </div>
             </article>
             
-            <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black pink">
+            <article class="fl f2-m w-100 w-third-ns pa3 bg-near-black tpink">
               <h1 class="f3-l f4-m f5  white mv0 pv2 ph3">Gas Price / Gas</h1>
               <div class="pa3 bt">
-                <p class="f3-l f4-m f5 measure mv0 pink">
+                <p class="f3-l f4-m f5 measure mv0 tpink">
                   <%= gasPrice %> / <%= gas%>
                 </p>
               </div>
@@ -149,6 +149,35 @@
     <script src="./node_modules/underscore/underscore-min.js"></script>
     <script src="./node_modules//backbone/backbone-min.js"></script>
     <script src="./explorer.js"></script>
+    
+    <style>
+    
+    .tblue {
+        color : #2796CC;
+    }    
+    
+    .tgreen {
+        color : #46B29D;
+    }
+    
+    .tyellow {
+        color : #F0CA4D;
+    }
+    
+    .torange {
+        color : #E37B40;
+    }
+    
+    .tred {
+        color : #F53855;
+    }
+    
+    .tpink {
+        color : #D446F5;
+    }
+        
+    
+    </style>
     
 </head>
 <body class="bg-moon-gray black-70 avenir">        

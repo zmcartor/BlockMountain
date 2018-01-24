@@ -258,6 +258,20 @@
         
     });
     
+    var AddressView = Backbone.View.extend({
+       
+        web3 : undefined,
+        router : undefined,
+    
+        initialize : function(opts){
+            // look up the address + transactions?
+            // check the latest blocks, and also monitor for any changes to this address by polling every X secs.
+            
+        },
+        
+    });
+    
+    
     Backbone.View.prototype.convertToDisplayETH = function(val, web3) {
       return Number(web3.fromWei(val , "ether")).toFixed(5);  
     };
